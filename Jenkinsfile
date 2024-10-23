@@ -36,11 +36,12 @@ pipeline
             {
                 script
                 {
-                    docker.withRegistry('',"${DOCKER_HUB_CREDENTIALS}")
+                    docker.withRegistry('',"${DOCKER_HUB_CREDENTIALS}") 
                     {
-                        docker.image("${IMAGE.Name}").push()
+                        // Push the newly built image to Docker Hub
+                        docker.image("${IMAGE_NAME}").push()
                     }
-                  
+                    
                 }
             }
         }
