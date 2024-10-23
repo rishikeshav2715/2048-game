@@ -46,7 +46,6 @@ pipeline
             }
         }
     }
-}
     post 
     {
         always 
@@ -54,3 +53,4 @@ pipeline
             cleanWs()  // Clean up the workspace after the build
         }
     }
+}
