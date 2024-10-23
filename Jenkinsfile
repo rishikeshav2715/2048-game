@@ -24,7 +24,7 @@ pipeline
             {
                 script 
                 {
-                    docker.Build("${IMAGE_NAME}")
+                    docker.build("${IMAGE_NAME}")
                 }
             }
             
