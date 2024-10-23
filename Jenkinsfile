@@ -17,14 +17,14 @@ pipeline
                 git branch: 'main', url: 'https://github.com/rishikeshav2715/2048-game.git'
             }
         }
-        
+
         stage('Build docker image')
         {
             steps 
             {
                 script 
                 {
-                    docker.build = ("${IMAGE_NAME}")
+                    docker.Build("${IMAGE_NAME}")
                 }
             }
             
