@@ -26,7 +26,7 @@ pipeline
                 {
                     def tagged_image = "${IMAGE_NAME}:${env.BUILD_ID}"
                     docker.build(tagged_image)
-                    writeFile file: 'build_id.txt', text: '${env.BUILD_ID}'
+                    writeFile file: 'build_id.txt', text: "${env.BUILD_ID}"
                 }
             }
             
