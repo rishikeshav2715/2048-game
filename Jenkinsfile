@@ -39,8 +39,8 @@ pipeline
                 {
                     docker.withRegistry('',"${DOCKER_HUB_CREDENTIALS}") 
                     {
-                        // Push the newly built image to Docker Hub
-                        docker.image("${IMAGE_NAME}").push()
+                        // Push the newly built image with TAG to Docker Hub
+                        docker.image("${IMAGE_NAME}:${env.BUILD_ID}").push()
                     }
                     
                 }
@@ -57,8 +57,7 @@ pipeline
                         to: 'rishidevopsprojects@gmail.com',
                         from: 'jenkins@example.com',
                         replyTo: 'jenkins@example.com',
-                        mimeType: 'text/html',
-                        attachmentsPattern: 'trivy-report.html'
+                        mimeType: 'text/html'
                     )
 
             cleanWs()  // Clean up the workspace after the build
