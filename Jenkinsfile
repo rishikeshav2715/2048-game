@@ -4,7 +4,7 @@ pipeline
 
     environment
     { 
-        IMAGE_NAME = 'rishikeshavs/2048-game' /
+        IMAGE_NAME = 'rishikeshavs/2048-game' 
         DOCKER_HUB_CREDENTIALS = '2276428b-546e-4735-b3df-66bc4e8f1da0'
     }
 
