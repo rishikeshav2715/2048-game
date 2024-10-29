@@ -26,9 +26,18 @@ pipeline
                 {
                     def tagged_image = "${IMAGE_NAME}:${env.BUILD_ID}"
                     docker.build(tagged_image)
+                    writeFile file: 'build_id.txt', text: '${env.BUILD_ID}'
                 }
             }
             
+        }
+
+        stage('Save the Build ID')
+        {
+            steps
+            {
+                archiveArtifacts artifacts: 'build_id.txt', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
+            }
         }
 
         stage('Push Image to DockerHub')
