@@ -4,13 +4,13 @@ pipeline
 
     environment
     { 
-        IMAGE_NAME = 'rishikeshavs/2048-game' // Replace with your Docker Hub username and image name
+        IMAGE_NAME = 'rishikeshavs/2048-game' /
         DOCKER_HUB_CREDENTIALS = '2276428b-546e-4735-b3df-66bc4e8f1da0'
     }
 
     stages
     {
-        stage('clone into repository')
+        stage('Cloning into repository')
         {
             steps
             {
@@ -18,19 +18,20 @@ pipeline
             }
         }
 
-        stage('Build docker image')
+        stage('Build Docker Image')
         {
             steps 
             {
                 script 
                 {
-                    docker.build("${IMAGE_NAME}")
+                    def tagged_image = "${IMAGE_NAME}:${env.BUILD_ID}"
+                    docker.build(tagged_image)
                 }
             }
             
         }
 
-        stage('push iamge to DockerHub')
+        stage('Push Image to DockerHub')
         {
             steps
             {
