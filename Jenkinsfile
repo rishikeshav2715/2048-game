@@ -69,8 +69,6 @@ pipeline
                         replyTo: 'jenkins@example.com',
                         mimeType: 'text/html'
                     )
-
-            cleanWs()  // Clean up the workspace after the build
         }
     }
 }
